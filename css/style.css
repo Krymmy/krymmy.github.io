@@ -33,7 +33,7 @@ header {
 
 .hed-button{
 box-shadow: 10px 17px 34px 6px rgba(18, 61, 145, 0.83);
-border: #ffffff;
+border: 1px solid #ffffff;
 border-radius: 50px;
 background-color: #ffffff;
 color: #072b6f;
