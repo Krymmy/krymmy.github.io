@@ -1,0 +1,303 @@
+body{
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 18px;
+}
+
+img{
+  max-width: 100%;
+}
+
+header {
+  padding-top: 59px;
+  padding-bottom: 22;
+  background-color: #3a7dfd;
+  color: #fefefe
+}
+
+.hed-pretitle{
+  margin-top: 102px;
+}
+
+.hed-title{
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 36.81px;
+  margin-top: 21px;
+}
+
+.hed-subtitle{
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.hed-button{
+box-shadow: 10px 17px 34px 6px rgba(18, 61, 145, 0.83);
+border-radius: 50px;
+background-color: #ffffff;
+color: #072b6f;
+font-size: 18px;
+font-weight: 700;
+padding: 17px 55px;
+margin-top: 33px;
+}
+
+header small{
+ font-size: 12px;
+ display: block;
+ text-align: center;
+ margin-top: 9px;
+}
+
+.hed-button-block{
+  max-width: 196px;
+}
+
+.portfolio{
+  background-color: #dddddd;
+  padding: 44px 160px 71px 160px
+}
+
+.portfolio-block{
+  background-color: #ffffff;
+  padding-top: 29px;
+  padding-bottom: 41px;
+}
+
+.portfolio-title, .portfolio-subtitle{
+  text-align: center;
+}
+
+.portfolio-title{
+  font-size: 18px;
+  color: #072b6f;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 10px;
+}
+
+.portfolio-subtitle{
+  color: #7bb9ff;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.portfolio-col1{
+   padding-left: 50px;
+}
+
+.portfolio-col2{
+  padding-right: 50px;
+}
+
+.portfolio-block h3{
+color: #072b6f;
+font-size: 18px;
+font-weight: 700;
+text-transform: uppercase;
+}
+
+.portfolio-block p{
+color: #8f8f8f;
+font-size: 14px;
+font-weight: 400;
+}
+
+.portolio-block a{
+color: #072b6f;
+font-size: 14px;
+font-weight: 400;
+text-decoration: underline;
+}
+
+
+footer{
+   background-color: #3a7dfd;
+   padding-top: 74px;
+   padding-bottom: 126px;
+}
+
+footer p{
+  color: #deedfe;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+footer h3{
+  color: #deedfe;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.footer-icon img{
+  width: 40px;
+  margin-right: 27px;
+}
+
+.footer-title{
+  margin-bottom: 0px
+}
+
+.footer-subtitle{
+ margin-top: 0px;
+}
+
+.footer-sub{
+  max-width: 250px;
+  text-align: center;
+}
+
+.footer-buttom-block{
+  padding-left: 192px;
+}
+
+.footer-buttom{
+display: inline-block;
+width: 165px;
+height: 48px;
+border-radius: 24px;
+border: 1px solid #ffffff;
+background-color: inherit;
+color: #deedfe;
+font-weight: 400;
+line-height: 39.8px;
+}
+
+
+@media (max-width: 1200px) {
+  .hed-pretitle{
+    margin-top: 61px;
+  }
+  .portfolio{
+    background-color: #dddddd;
+    padding: 22px 80px 35px 80px
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio{
+    background-color: #dddddd;
+    margin: ;
+  }
+
+  .hed-img{
+    display: none;
+  }
+
+  .portfolio-col1{
+     padding-right: 50px;
+  }
+
+  .portfolio-col2{
+    margin-top: 40px;
+    padding-left: 50px;
+  }
+
+  .portfolio-title{
+    font-size: 12px;
+    color: #072b6f;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-subtitle{
+    color: #7bb9ff;
+    font-size: 8px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
+  .portfolio-block h3{
+  color: #072b6f;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  }
+
+  .portfolio-block p{
+  color: #8f8f8f;
+  font-size: 8px;
+  font-weight: 400;
+  }
+
+  .portolio-block a{
+  color: #072b6f;
+  font-size: 2px;
+  text-decoration: underline;
+  }
+
+  .hed-pretitle{
+    text-align: center;
+  }
+
+  .hed-title{
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 36.81px;
+    margin-top: 21px;
+  }
+
+  .hed-subtitle{
+    text-align: center;
+    font-weight: 400;
+    margin-top: 20px;
+  }
+
+  .hed-button-block{
+    padding-left:  70px;
+    max-width: 196px;
+  }
+
+  footer h3{
+    color: #deedfe;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  footer p{
+    color: #deedfe;
+    font-size: 12px;
+  }
+
+  .footer-title{
+    text-align: center;
+  }
+
+  .footer-subtitle{
+    text-align: center;
+  }
+
+  .footer-buttom{
+  display: inline-block;
+  width: 162px;
+  height: 24px;
+  border-radius: 1000px;
+  border: 1px solid #ffffff;
+  background-color: inherit;
+  color: #deedfe;
+  line-height: 39.8px;
+  font-size: 10px;
+  padding-bottom: 40px;
+  margin-left: 70px;
+  }
+
+  .footer-text-prebuttom{
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .footer-icon img{
+    width: 40px;
+    margin-right: 2px;
+    margin-left: 30px;
+  }
+  .footer-sub{
+    max-width: 328px;
+    text-align: center;
+  }
+
+}
