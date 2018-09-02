@@ -41,6 +41,11 @@ font-size: 18px;
 font-weight: 700;
 padding: 17px 55px;
 margin-top: 33px;
+transition: 0.5S;
+}
+
+.hed-button: hover{
+  box-shadow: none;
 }
 
 header small{
