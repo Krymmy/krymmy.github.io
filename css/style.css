@@ -291,7 +291,7 @@ background-color: inherit;
   }
   
   .footer-sub{
-    margin-left: 100px;
+    max-width: 500px;
     text-align: center;
   }
 }
