@@ -1,27 +1,32 @@
 # krymmy.github.io
 
-Профиль разработчика Krymmy
+---
 
-### История страницы
-Сайт прошел через 3 итерации.
+[[Russian](README_ru.md)]
 
-Первая итрерация и вторая, была создана более 5 лет назад.
+---
 
-#### Первая итерация
+Krymmy's Developer Profile
 
-Создана на интенсиве по Front-end разработке, если вспомню, что за онлайн шлока, напишу сюда.
+### Page History
 
-#### Вторая итерация
+The site has gone through 3 iterations.
 
-Страница была заменена на бьющееся сердце, видимо я хотел признаться в любви кому то.
+The first and second iterations were created more than 5 years ago.
 
-#### Третья итерация
+#### First Iteration
 
-Это то, что вы видете прямо сейчас.
-Просто в какой то момент я вспомнил, что у меня есть этот аккаунт
-и решил переписать эту страницу на свой вкус. Сделав снова из этого свой профиль разработчика
+Created during a Front-end Development intensive course. If I remember which online school it was, I'll add it here.
 
+#### Second Iteration
 
-### Планы на страницу
+The page was replaced with a beating heart. Apparently, I wanted to confess my love to someone.
 
-Планы на эту страницу у меня есть, добавить автозаполнение со своего сайта, где будут храниться данные.
+#### Third Iteration
+
+This is what you see right now.
+At some point, I remembered that I had this account and decided to rewrite the page to my liking, turning it into my developer profile again.
+
+### Plans for the Page
+
+I have plans for this page: to add auto-filling from my own website, where the data will be stored.
