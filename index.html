@@ -1,97 +1,296 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="ru">
+
+<head>
     <meta charset="UTF-8">
-    <title>Кот</title>
-    <style>
-        :root {
-            --bg-color: #f4f4f4;
-            --card-bg: white;
-            --text-color: #333;
-            --cat-color: black;
-            --eye-color: limegreen;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .dark-theme {
-            --bg-color: #1a1a1a;
-            --card-bg: #2c2c2c;
-            --text-color: #f4f4f4;
-            --cat-color: white;
-            --eye-color: #66ff66;
-        }
+    <title>Krymmy — Developer</title>
 
-        body {
-            background: var(--bg-color);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: background 0.5s ease;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-            transition: background 0.5s ease, color 0.5s ease;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        svg {
-            width: 200px;
-            height: 200px;
-            transition: fill 0.5s ease;
-        }
-
-        /* Для глаз */
-        .cat-eye {
-            transition: fill 0.5s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="dark-theme">
+
+<body>
+
+<main class="page">
+
     <div class="card">
-        <h1 id="greeting">Привет от белого кота</h1>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1280 1280" width="200" height="200">
-            <g transform="translate(0, 1280) scale(0.1, -0.1)" fill="var(--cat-color)" stroke="none">
-                <path d="M1965 9957 c-56 -136 -115 -521 -135 -892 -13 -245 -13 -872 0 -1196
-                    14 -340 54 -916 85 -1235 14 -142 30 -342 35 -444 27 -527 94 -935 224 -1346
-                    434 -1379 1512 -2241 3101 -2479 354 -53 570 -65 1150 -65 580 0 798 13 1150
-                    65 1225 184 2163 746 2715 1627 83 132 234 431 289 573 191 489 286 967 321
-                    1610 5 99 21 297 34 440 26 267 56 663 78 1025 17 287 17 1398 0 1590 -31 344
-                    -94 691 -134 746 -12 16 -189 -50 -336 -126 -417 -212 -1109 -704 -1830 -1298
-                    -92 -76 -172 -141 -178 -145 -7 -4 -72 22 -146 57 -490 235 -1035 399 -1518
-                    458 -142 18 -748 18 -890 0 -493 -61 -1013 -218 -1527 -463 -108 -51 -129 -58
-                    -144 -47 -10 7 -100 81 -201 164 -891 734 -1641 1241 -2050 1384 l-80 28 -13
-                    -31z"></path>
-            </g>
-            <!-- Глаза -->
-            <circle cx="640" cy="1140" r="65" class="cat-eye" fill="var(--eye-color)"></circle>
-        </svg>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero">
+
+            <div id="icon" class="hero-icon">
+                <pre class="ascii"></pre>
+            </div>
+
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+
+                    <span data-i18n="developerProfile">
+                        Профиль разработчика
+                    </span>
+                </div>
+
+                <h1>Krymmy</h1>
+
+                <!--
+                    Этот текст меняется одновременно
+                    от языка и времени суток.
+                -->
+                <p id="greeting" class="greeting">
+                    Привет от черного кота
+                </p>
+
+                <p
+                    class="description"
+                    data-i18n="description"
+                >
+                    Разработчик, программист и человек,
+                    который любит разбираться в том,
+                    как всё работает.
+                </p>
+
+
+                <div class="hero-links">
+                    <a
+                        href="https://github.com/Krymmy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-i18n="github"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
+                        href="#repositories"
+                        data-i18n="projects"
+                    >
+                        Проекты
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="divider"></div>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="section">
+            <div class="section-title">
+                <span>01</span>
+
+                <h2 data-i18n="about">
+                    О себе
+                </h2>
+            </div>
+
+
+            <div class="about">
+                <p data-i18n="aboutText">
+					Заполню позже, как захочу
+                </p>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             TECH STACK
+        ========================== -->
+
+        <section class="section">
+            <div class="section-title">
+                <span>02</span>
+                <h2 data-i18n="stack">
+                    Технологии
+                </h2>
+            </div>
+            <div class="tags">
+				<span class="tag">Rust</span>
+                <span class="tag">Python</span>
+                <span class="tag">Git</span>
+                <span class="tag">Linux</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BADGES
+        ========================== -->
+
+        <section class="section">
+            <div class="section-title">
+                <span>03</span>
+                <h2 data-i18n="badges">
+                    Бейджи
+                </h2>
+            </div>
+
+
+            <div class="badges">
+                <a
+                    class="badge"
+                    href="https://www.codewars.com/users/Krymmy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="https://www.codewars.com/users/Krymmy/badges/large"
+                        alt="Codewars"
+                    >
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             REPOSITORIES
+        ========================== -->
+
+        <section
+            class="section"
+            id="repositories"
+        >
+
+            <div class="section-title">
+
+                <span>04</span>
+
+                <h2 data-i18n="repositories">
+                    Репозитории
+                </h2>
+
+            </div>
+
+
+            <div class="repositories">
+
+
+                <!-- REPOSITORY -->
+
+                <a class="repository" href="https://github.com/Krymmy/krymmy.github.io" target="_blank" rel="noopener noreferrer">
+                    <div class="repository-header">
+                        <span class="repository-name">
+                            Krymmy Github IO
+                        </span>
+                        <span class="repository-link">
+                            ↗
+                        </span>
+                    </div>
+
+                    <p data-i18n="krymmyGitHubIO_Description">
+                        Все, что вы тут видите, это и есть этот проект
+                    </p>
+
+
+                    <div class="repository-meta">
+                        <span class="repository-language">
+                            <i></i>
+                            HTML, CSS, JS
+                        </span>
+                        <span data-i18n="public">
+                            PUBLIC
+                        </span>
+                    </div>
+
+                </a>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             LINKS
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <span>05</span>
+
+                <h2 data-i18n="links">
+                    Ссылки
+                </h2>
+
+            </div>
+
+
+            <div class="links">
+
+                <a
+                    href="https://github.com/Krymmy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>GitHub</span>
+                    <span>↗</span>
+                </a>
+
+
+                <a
+                    href="https://www.codewars.com/users/Krymmy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>Codewars</span>
+                    <span>↗</span>
+                </a>
+
+                <a
+                    href="https://krymmy.ru"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span data-i18n="website">
+                        Сайт
+                    </span>
+
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            <span>Krymmy</span>
+
+            <span data-i18n="builtWith">
+                Сделано с HTML · CSS · JS · И немного нейронки
+            </span>
+
+        </footer>
+
     </div>
 
-    <script>
-        function applyTheme() {
-            const hour = new Date().getHours();
-            const isNight = hour < 7 || hour >= 19;
-            if (isNight) {
-                document.body.classList.add("dark-theme");
-                document.getElementById("greeting").textContent = "Привет от белого кота";
-            } else {
-                document.body.classList.remove("dark-theme");
-                document.getElementById("greeting").textContent = "Привет от черного кота";
-            }
-        }
+</main>
 
-        applyTheme();
-    </script>
+
+<script src="index.js"></script>
 
 </body>
 </html>
