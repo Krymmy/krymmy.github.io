@@ -1,9 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <title>Кот</title>
-    <link href="/css/style.css" rel="stylesheet"/>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --card-bg: white;
+            --text-color: #333;
+            --cat-color: black;
+            --eye-color: limegreen;
+        }
+
+        .dark-theme {
+            --bg-color: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-color: #f4f4f4;
+            --cat-color: white;
+            --eye-color: #66ff66;
+        }
+
+        body {
+            background: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        svg {
+            width: 200px;
+            height: 200px;
+            transition: fill 0.5s ease;
+        }
+
+        /* Для глаз */
+        .cat-eye {
+            transition: fill 0.5s ease;
+        }
+    </style>
 </head>
 <body class="dark-theme">
     <div class="card">
