@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	  <!-- Важная техническая информация для браузера -->
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Информация об Авторе и описание проекта -->
-		<meta name="description" content="">
-		<meta name="auyhor" content="Евгений Момотов">
-
-		<!-- Иконка, которая будет на вкладке в браузере -->
-		<link rel="icon" href="favicon.ico">
-		<!-- Заголовок на вкладке в браузере -->
-		<title>Я тебя люблю!</title>
-    <!--Google шрифт-->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
-		<!-- Подключаем наш файл со стилями, который находится в папке css-->
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/animate.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+    <meta charset="UTF-8">
+    <title>Кот</title>
+    <link href="/css/style.css" rel="stylesheet"/>
 </head>
-<body>
-	<div class="love">
-		<p> Я тебя люблю! </p>
-	</div>
-	<div class="preloader" text-align="center">
-		<img src="img/heart.svg" alt="иконка4" class="heartBeat" class="loader">
-	</div>
+<body class="dark-theme">
+    <div class="card">
+        <h1 id="greeting">Привет от белого кота</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1280 1280" width="200" height="200">
+            <g transform="translate(0, 1280) scale(0.1, -0.1)" fill="var(--cat-color)" stroke="none">
+                <path d="M1965 9957 c-56 -136 -115 -521 -135 -892 -13 -245 -13 -872 0 -1196
+                    14 -340 54 -916 85 -1235 14 -142 30 -342 35 -444 27 -527 94 -935 224 -1346
+                    434 -1379 1512 -2241 3101 -2479 354 -53 570 -65 1150 -65 580 0 798 13 1150
+                    65 1225 184 2163 746 2715 1627 83 132 234 431 289 573 191 489 286 967 321
+                    1610 5 99 21 297 34 440 26 267 56 663 78 1025 17 287 17 1398 0 1590 -31 344
+                    -94 691 -134 746 -12 16 -189 -50 -336 -126 -417 -212 -1109 -704 -1830 -1298
+                    -92 -76 -172 -141 -178 -145 -7 -4 -72 22 -146 57 -490 235 -1035 399 -1518
+                    458 -142 18 -748 18 -890 0 -493 -61 -1013 -218 -1527 -463 -108 -51 -129 -58
+                    -144 -47 -10 7 -100 81 -201 164 -891 734 -1641 1241 -2050 1384 l-80 28 -13
+                    -31z"></path>
+            </g>
+            <!-- Глаза -->
+            <circle cx="640" cy="1140" r="65" class="cat-eye" fill="var(--eye-color)"></circle>
+        </svg>
+    </div>
+
+    <script>
+        function applyTheme() {
+            const hour = new Date().getHours();
+            const isNight = hour < 7 || hour >= 19;
+            if (isNight) {
+                document.body.classList.add("dark-theme");
+                document.getElementById("greeting").textContent = "Привет от белого кота";
+            } else {
+                document.body.classList.remove("dark-theme");
+                document.getElementById("greeting").textContent = "Привет от черного кота";
+            }
+        }
+
+        applyTheme();
+    </script>
+
 </body>
 </html>
