@@ -1,4 +1,4 @@
-import { translations, getUserLanguage } from "./localization";
+import { translations, getUserLanguage } from "./localization.js";
 
 const lightVars = {
     '--bg-color': '#f4f4f4',
@@ -76,7 +76,7 @@ function interpolateValue(val1, val2, t) {
 
 export function updateTheme() {
     document.body.classList.remove('dark-theme');
-    
+
     const now = new Date();
     const hours = now.getHours() + now.getMinutes() / 60;
 

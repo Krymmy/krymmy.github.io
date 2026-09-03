@@ -1,5 +1,5 @@
-import { applyLocalization } from "./js/localization";
-import { updateTheme } from "./js/day_circle"
+import { applyLocalization } from "./js/localization.js";
+import { updateTheme } from "./js/day_circle.js"
 
 const scull_image = `
                              __xxxxxxxxxxxxxxxx___.
