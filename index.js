@@ -1,4 +1,4 @@
-import { applyLocalization } from "./js/localization.js";
+import { applyLocalization, getUserLanguage, translations } from "./js/localization.js";
 import { updateTheme } from "./js/day_circle.js"
 
 const scull_image = `
