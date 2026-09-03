@@ -1,3 +1,6 @@
+import { applyLocalization } from "./js/localization";
+import { updateTheme } from "./js/day_circle"
+
 const scull_image = `
                              __xxxxxxxxxxxxxxxx___.
                         _gxXXXXXXXXXXXXXXXXXXXXXXXX!x_
@@ -68,51 +71,6 @@ const scull_image = `
                                        ~~                                      
 `;
 
-const translations = {
-    ru: {
-        greetingBlack: "Привет от черного кота",
-        greetingWhite: "Привет от белого кота",
-
-        developerProfile: "Профиль разработчика",
-        description:
-            "Разработчик, программист и человек, который любит разбираться в том, как всё работает.",
-        about: "О себе",
-        aboutText: "Заполню позже, как захочу",
-        stack: "Технологии",
-        badges: "Бейджи",
-        repositories: "Репозитории",
-        links: "Ссылки",
-
-        public: "ПУБЛИЧНЫЙ",
-        github: "GitHub",
-        codewars: "Codewars",
-        telegram: "Telegram",
-        website: "Сайт",
-        krymmyGitHubIO_Description: "Все, что вы тут видите, это и есть этот проект",
-    },
-
-    en: {
-        greetingBlack: "Hello from the black cat",
-        greetingWhite: "Hello from the white cat",
-
-        developerProfile: "Developer profile",
-        description:
-            "Developer, programmer and a person who loves figuring out how things work.",
-        about: "About",
-        aboutText: "Fill later, if I want",
-        stack: "Tech Stack",
-        badges: "Badges",
-        repositories: "Repositories",
-        links: "Links",
-
-        public: "PUBLIC",
-        github: "GitHub",
-        codewars: "Codewars",
-        telegram: "Telegram",
-        website: "Website",
-        krymmyGitHubIO_Description: "All what you can see here, its this project",
-    }
-};
 
 function fillSpaces(text) {
     text = text
@@ -229,6 +187,7 @@ function animateASCII(element, icon, duration = 2000) {
 
     requestAnimationFrame(random_frame);
 }
+
 async function addASCIIcon(icon) {
     const element = document.querySelector("#icon .ascii");
     animateASCII(element, addBorder(icon))
@@ -252,32 +211,10 @@ function applyTheme() {
     }
 }
 
-function getUserLanguage() {
-    const language = navigator.language.toLowerCase();
-
-    if (language.startsWith("ru")) {
-        return "ru";
-    }
-
-    return "en";
-}
-
-function applyLocalization() {
-    const language = getUserLanguage();
-    const translation = translations[language];
-
-    document.documentElement.lang = language;
-
-    document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.dataset.i18n;
-
-        if (translation[key]) {
-            element.textContent = translation[key];
-        }
-    });
-}
 
 addASCIIcon(scull_image);
 applyTheme();
 applyLocalization();
+updateTheme()
+setInterval(updateTheme, 100);
 		
