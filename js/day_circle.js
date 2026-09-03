@@ -1,5 +1,16 @@
 import { translations, getUserLanguage } from "./localization.js";
 
+// ========== НАСТРОЙКИ ТЕМЫ ==========
+// lightStart  – час начала светлой темы (утро)
+// darkStart   – час начала тёмной темы (вечер)
+// transition  – длительность перехода в часах (0 – мгновенное переключение)
+const THEME_CONFIG = {
+    lightStart: 6,      // 6:00
+    darkStart: 18,      // 18:00
+    transition: 1.5,    // 1 час 30 минут
+};
+
+// ========== ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ ==========
 const lightVars = {
     '--bg-color': '#f4f4f4',
     '--card-bg': 'white',
@@ -10,7 +21,6 @@ const lightVars = {
     '--border-color': 'rgba(0,0,0,0.09)',
     '--muted-color': '#777',
     '--accent-color': 'limegreen',
-    // --ascii-size и --card-radius не меняются, можно не включать
 };
 
 const darkVars = {
@@ -25,8 +35,7 @@ const darkVars = {
     '--accent-color': '#66ff66',
 };
 
-
-
+// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
 function parseColor(str) {
     str = str.trim().toLowerCase();
     if (str.startsWith('#')) {
@@ -74,29 +83,104 @@ function interpolateValue(val1, val2, t) {
     return val1;
 }
 
+// Приводит часы к диапазону [0, 24)
+function normalizeHour(h) {
+    while (h < 0) h += 24;
+    while (h >= 24) h -= 24;
+    return h;
+}
+
+// Вычисляет коэффициент t (0 – светлая, 1 – тёмная) для текущего времени
+function getThemeFactor(currentHour, cfg) {
+    const { lightStart, darkStart, transition } = cfg;
+    const L = normalizeHour(lightStart);
+    const D = normalizeHour(darkStart);
+    const h = normalizeHour(currentHour);
+
+    // Расстояние по часовой стрелке от a до b (в часах)
+    const distClockwise = (a, b) => {
+        let d = b - a;
+        if (d < 0) d += 24;
+        return d;
+    };
+
+    // Проверяем, находится ли h в светлой зоне (между L+tr и D-tr)
+    const lightStartAdjusted = normalizeHour(L + transition);
+    const lightEndAdjusted = normalizeHour(D - transition);
+    let inLightZone;
+    if (lightStartAdjusted < lightEndAdjusted) {
+        inLightZone = h >= lightStartAdjusted && h < lightEndAdjusted;
+    } else {
+        inLightZone = h >= lightStartAdjusted || h < lightEndAdjusted;
+    }
+    if (inLightZone) return 0;
+
+    // Проверяем, находится ли h в тёмной зоне (между D+tr и L+24-tr)
+    const darkStartAdjusted = normalizeHour(D + transition);
+    const darkEndAdjusted = normalizeHour(L + 24 - transition);
+    let inDarkZone;
+    if (darkStartAdjusted < darkEndAdjusted) {
+        inDarkZone = h >= darkStartAdjusted && h < darkEndAdjusted;
+    } else {
+        inDarkZone = h >= darkStartAdjusted || h < darkEndAdjusted;
+    }
+    if (inDarkZone) return 1;
+
+    // Иначе мы в одном из переходных интервалов
+    const distFromLight = distClockwise(L, h);
+    const distFromDark = distClockwise(D, h);
+
+    // Утренний переход (от тёмной к светлой): t убывает от 1 до 0
+    if (distFromLight < transition) {
+        const progress = distFromLight / transition;
+        return 1 - progress;
+    }
+
+    // Вечерний переход (от светлой к тёмной): t возрастает от 0 до 1
+    if (distFromDark < transition) {
+        const progress = distFromDark / transition;
+        return progress;
+    }
+
+    // Защита
+    return 0;
+}
+
+// Определяет часть суток для приветствия (на основе часов)
+function getGreetingPeriod(hours) {
+    if (hours >= 6 && hours < 12) return 'Black';
+    if (hours >= 12 && hours < 18) return 'Black';
+    if (hours >= 18 && hours < 23) return 'White';
+    return 'White';
+}
+
+// ========== ОСНОВНАЯ ФУНКЦИЯ ==========
 export function updateTheme() {
+    // Удаляем класс (если используется) – теперь всё через CSS-переменные
     document.body.classList.remove('dark-theme');
 
     const now = new Date();
     const hours = now.getHours() + now.getMinutes() / 60;
 
-    // t = 1 в полночь, t = 0 в полдень (плавный цикл)
-    let t = 0.5 + 0.5 * Math.cos((hours - 12) / 12 * Math.PI);
-    // Можно скорректировать: при желании добавить смещение, чтобы пик темноты был в 1:00 ночи и т.д.
+    // Получаем коэффициент темы на основе настроек
+    const t = getThemeFactor(hours, THEME_CONFIG);
 
+    // Применяем интерполяцию ко всем переменным
     const root = document.documentElement;
     for (const key in lightVars) {
         const val = interpolateValue(lightVars[key], darkVars[key], t);
         root.style.setProperty(key, val);
     }
 
-    // Обновление текста приветствия (опционально)
+    // Обновление приветствия (используем время суток, а не t)
     const lang = getUserLanguage();
     const translation = translations[lang];
     const greetingEl = document.getElementById('greeting');
-    // Выбираем фразу в зависимости от t (можно 4 фазы)
-    if (t < 0.25) greetingEl.textContent = translation.greetingMorning;
-    else if (t < 0.5) greetingEl.textContent = translation.greetingAfternoon;
-    else if (t < 0.75) greetingEl.textContent = translation.greetingEvening;
-    else greetingEl.textContent = translation.greetingNight;
+    if (greetingEl && translation) {
+        const period = getGreetingPeriod(hours);
+        // Ожидаем ключи: greetingMorning, greetingAfternoon, greetingEvening, greetingNight
+        // Если их нет – используем запасные варианты
+        const key = `greeting${period}`;
+        greetingEl.textContent = translation[key] || translation.greetingBlack || 'Hello!';
+    }
 }
