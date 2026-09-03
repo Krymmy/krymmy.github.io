@@ -215,6 +215,6 @@ function applyTheme() {
 addASCIIcon(scull_image);
 applyTheme();
 applyLocalization();
-updateTheme()
-setInterval(updateTheme, 100);
+// updateTheme()
+// setInterval(updateTheme, 100);
 		
